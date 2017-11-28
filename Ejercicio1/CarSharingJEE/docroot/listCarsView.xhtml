@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+
+  <ui:composition template="./headerView.xhtml">
+	<ui:define name="content">
+	  <h:form align="left" >
+	  
+	  	<h:commandLink action="createCarView.html" value="New Car" />
+	  	<h:outputText value="   " />	
+		<h:commandLink action="#{car.previousScreen}" value="Previous Page" />
+		<h:outputText value="   " />
+		<h:commandLink action="#{car.nextScreen}" value="Next Page" />		
+		
+		<h:dataTable value="#{car.carListView}" var="item" bgcolor="#F1F1F1" border="10" first="0" width="100%" frame="hsides" rules="all"  >
+ 			
+ 			<f:facet name="header">			
+  			<h:outputText align="center" value="List drivers: #{car.nif}" />		
+  			</f:facet> 
+ 			
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Id Car" />
+   				</f:facet> 
+   				<p align="right"><h:outputText value="#{item.id}" /></p>
+ 			</h:column>
+ 			
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Brand"/>
+   				</f:facet> 
+     			<h:outputText value="#{item.brand}" />
+ 			</h:column>
+ 			
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Model"/>
+   				</f:facet> 
+     			<h:outputText value="#{item.model}" />
+ 			</h:column>
+ 			
+ 			
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Color"/>
+   				</f:facet> 
+     			<h:outputText value="#{item.color}" />
+ 			</h:column>
+ 			
+ 			<h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Nif Driver"/>
+   				</f:facet> 
+     			<h:outputText value="#{item.driver.nif}" />
+ 			</h:column>
+ 			
+ 			 <h:column>
+   				<f:facet name="header">
+   					<h:outputText value="Name Driver"/>
+   				</f:facet> 
+     			<h:outputText value="#{item.driver.name} #{item.driver.surname}" />
+ 			</h:column>
+ 			
+ 			
+ 			
+ 			<h:column>	
+ 					<f:facet name="header">
+   						<h:outputText value="View Car"/>
+   					</f:facet> 
+ 					
+					<h:link outcome="showCarView" value="View Car" >
+						<f:param name="idCar" value="#{item.id}" />						
+					</h:link>		
+ 			</h:column>
+ 			
+ 			<h:column>
+ 			
+ 				<f:facet name="header">
+   					<h:outputText value="Delete Car"/>
+   				</f:facet> 
+   				
+ 				<h:commandButton type="submit" id="submit" action="#{car.delCar(item)}" value="Delete"/>
+ 			</h:column>
+ 			
+ 		</h:dataTable>
+ 	  </h:form>		
+	</ui:define>
+  </ui:composition>
+</html>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+   <f:metadata>
+      <f:viewParam name="idCar" value="#{carshow.idCar}"/>
+   </f:metadata>
+
+  <ui:composition template="./headerView_1.xhtml">
+	<ui:define name="content">
+		<br/>
+ 		<h:form>
+ 			<div align="center">
+				<table border="1" width="50%" id="table1">
+					<tr>
+						<td width="212" rowspan="6">
+      						<p align="left" />
+   							<h:graphicImage border="0" url="resources/imganimals/#{carshow.dataCar.photo}.gif" width="200"/>
+      					</td>
+						<td width="155">
+							<p align="left"/><i><b><font size="4" face="Century">Nif:</font></b></i>
+						</td>
+						<td>
+							<p align="left"/><h:outputText value="#{carshow.dataCar.driver.nif}" />
+						</td>
+					</tr>
+					<tr>
+						<td width="155">
+							<p align="left"/><i><b><font size="4" face="Century">Name:</font></b></i></td>
+						<td>
+							<p align="left"/><h:outputText value="#{carshow.dataCar.driver.name} #{carshow.dataCar.driver.surname}" />
+						</td>
+					</tr>
+					<tr>
+						<td width="155">
+							<p align="left"/><i><b><font size="4" face="Century">Id:</font></b></i></td>
+						<td>
+							<p align="left"/><h:outputText value="#{carshow.dataCar.id}" />
+						</td>
+					</tr>
+					<tr>
+						<td width="155">
+							<p align="left"/><i><b><font size="4" face="Century">Brand:</font></b></i>
+						</td>
+						<td>
+							<p align="left"/><h:outputText value="#{carshow.dataCar.brand}" />
+						</td>
+					</tr>
+					<tr>
+						<td width="155">
+							<p align="left"/><i><b><font size="4" face="Century">Model:</font></b></i>
+						</td>
+						<td>
+							<p align="left"/>&nbsp;<h:outputText value="#{carshow.dataCar.model}" />
+						</td>
+					</tr>
+					<tr>
+						<td width="155">
+							<p align="left"/><i><b><font size="4" face="Century">Color:</font></b></i>
+						</td>
+						<td>
+							<p align="left"/><h:outputText value="#{carshow.dataCar.color}" />
+						</td>
+					</tr>
+				</table> 	
+			</div> 
+			<p align="center">
+				<h:commandLink value="Return" action="listCarsView" />
+			</p>
+ 		</h:form>
+	</ui:define>
+  </ui:composition>
+</html>

@@ -1,0 +1,13 @@
+<application>
+  <display-name>CarSharingWS</display-name>
+  <module>
+    <web>
+      <web-uri>CarSharingWS.war</web-uri>
+      <context-root>/CarSharingWS</context-root>
+    </web>
+  </module>
+  <module>
+    <ejb>CarSharingWS.jar</ejb>
+  </module>
+</application>
+
